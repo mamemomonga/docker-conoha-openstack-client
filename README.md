@@ -54,7 +54,7 @@ quitで終了
 
 https://docs.openstack.org/ja/user-guide/cli-launch-instances.html
 
-	$ openstack flavor list | grep '512mb'
+	$ openstack flavor list
 
 	+--------------------------------------+---------+-------+------+-----------+-------+-----------+
 	| ID                                   | Name    |   RAM | Disk | Ephemeral | VCPUs | Is Public |
