@@ -5,18 +5,44 @@ DockerでPython3実行環境を用意し、OpenStack-CLIを使えるようにし
 ## 用意するもの
 
 * Docker
+* Bash
 * ConoHaアカウント
 
-## 接続設定
+### 1. 接続設定
 
-1. ConoHaコンソールにログインし、API情報のページでAPIユーザを作成
-2. このプロジェクトのルートに、openrc.example.env を参考にして openrc.env を作成
+ConoHaコンソールにログインし、API情報のページでAPIユーザを作成します
+
+### 2. openrc.env を作成
+
+以下の内容を参考にして、このプロジェクトのルートに openrc.env を作成してください。
+
+	# 設定情報は
+	#   ConoHaコントロールパネル→API情報→APIユーザ
+	#   https://manage.conoha.jp/API/
+	# を参照して設定する
+	
+	# APIユーザ→ユーザ名
+	OS_USERNAME=gncu00000000
+	
+	# APIユーザ→パスワード
+	OS_PASSWORD=パスワード
+	
+	# テナント情報→テナントID
+	OS_TENANT_ID=テナントID
+	 
+	# テナント情報→テナント名
+	OS_TENANT_NAME=gnct00000000
+	
+	# エンドポイント→Identity Service
+	OS_AUTH_URL=https://identity.tyo1.conoha.io/v2.0
+
+### 3. コマンドの実行
 
 以下のコマンドを実行
 (PATHを追加, Dockerをビルド, openstackコマンド起動)
 
-	$ eval $(eval $(bin/control.sh env)
-	$ control.sh build
+	$ scripts/build.sh
+	$ eval $(scripts/env.sh)
 	$ openstack
 	(openstack) configuration show
 

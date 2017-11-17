@@ -3,5 +3,4 @@ set -euo pipefail
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 source $BASEDIR/config.env
 
-exec docker run $DCOPT -it --rm $DCIMG openstack $@
-
+exec docker run $DCOPT -it --rm $DCIMG bash
